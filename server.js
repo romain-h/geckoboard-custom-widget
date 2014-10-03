@@ -109,6 +109,8 @@ app.get('/text', function(req, res) {
   }, chance.integer({ min: 0, min: 5000 }));
 });
 
-var server = app.listen(9001, function() {
+app.set('port', (process.env.PORT || 9001));
+
+var server = app.listen(app.get('port'), function() {
     console.log('Rest server listening on port %d', server.address().port);
 });

@@ -1,0 +1,13 @@
+{
+  "name": "Rest_Server_Sandbox",
+  "description": "Sandbox server express",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "morgan": "~1.1.1",
+    "body-parser": "~1.2.2",
+    "chance": "~0.6.1",
+    "lodash": "~2.4.1"
+  }
+}

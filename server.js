@@ -142,7 +142,7 @@ app.get('/piechart', function(req, res) {
     });
   }
 
-  res.json(obj);
+  res.json({ item: obj });
 });
 
 app.get('/map', function(req, res) {

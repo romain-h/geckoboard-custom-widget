@@ -130,6 +130,21 @@ app.get('/monitoring', function(req, res) {
   res.json(obj);
 });
 
+app.get('/piechart', function(req, res) {
+  var obj = [];
+  var nbItems = chance.integer({ min: 2, max: 10 });
+
+  for(i=0;i<nbItems;i++) {
+    obj.push({
+      value: chance.integer({ min: 0, max: 1000 }),
+      label: chance.word(),
+      color: chance.color({ format: 'hex' })
+    });
+  }
+
+  res.json(obj);
+});
+
 app.get('/map', function(req, res) {
   var obj = JSON.parse(fs.readFileSync('data/map.json', 'utf8'));
   setTimeout(function() {

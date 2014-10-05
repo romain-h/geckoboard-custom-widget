@@ -121,6 +121,15 @@ app.get('/list', function(req, res) {
   res.json(obj);
 });
 
+app.get('/monitoring', function(req, res) {
+  var obj = {
+    "status": chance.bool()? 'up':'down',
+    "downTime": chance.integer({ min: 1, max: 150 }) + " days ago",
+    "responseTime": chance.integer({ min: 100, max: 1500 }) + " ms"
+  };
+  res.json(obj);
+});
+
 app.get('/map', function(req, res) {
   var obj = JSON.parse(fs.readFileSync('data/map.json', 'utf8'));
   setTimeout(function() {

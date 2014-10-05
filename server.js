@@ -145,6 +145,19 @@ app.get('/piechart', function(req, res) {
   res.json({ item: obj });
 });
 
+app.get('/rag', function(req, res) {
+  var obj = [];
+
+  for(i=0;i<3;i++) {
+    obj.push({
+      value: chance.integer({ min: 0, max: 200 }),
+      text: chance.word(),
+    });
+  }
+
+  res.json({ item: obj });
+});
+
 app.get('/map', function(req, res) {
   var obj = JSON.parse(fs.readFileSync('data/map.json', 'utf8'));
   setTimeout(function() {

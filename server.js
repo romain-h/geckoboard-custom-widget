@@ -73,6 +73,34 @@ app.get('/geckometer', function(req, res) {
   res.json(obj);
 });
 
+app.get('/highchart', function(req, res) {
+  var obj = JSON.parse(fs.readFileSync('data/highchart.json', 'utf8'));
+  res.json(obj);
+});
+
+app.get('/linechart', function(req, res) {
+  var obj,
+    values = [],
+    axisLabels = [];
+
+  var nbItems = chance.integer({ min: 2, max: 100 });
+
+  for(i=0;i<nbItems;i++) {
+    values.push(chance.integer({ min: 0, max: 1000 }));
+    axisLabels.push(chance.word());
+  }
+
+  obj = {
+    item: values,
+    settings: {
+      axisx: axisLabels,
+      axisy: [],
+      color: chance.color({ format: 'hex' })
+    }
+  }
+  res.json(obj);
+});
+
 app.get('/map', function(req, res) {
   var obj = JSON.parse(fs.readFileSync('data/map.json', 'utf8'));
   setTimeout(function() {

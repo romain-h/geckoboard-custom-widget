@@ -83,10 +83,10 @@ app.get('/linechart', function(req, res) {
     values = [],
     axisLabels = [];
 
-  var nbItems = chance.integer({ min: 2, max: 100 });
+  var nbItems = chance.integer({ min: 2, max: 30 });
 
   for(i=0;i<nbItems;i++) {
-    values.push(chance.integer({ min: 0, max: 1000 }));
+    values.push(chance.integer({ min: 0, max: 250 }));
     axisLabels.push(chance.word());
   }
 

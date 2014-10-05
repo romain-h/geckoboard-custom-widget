@@ -101,6 +101,26 @@ app.get('/linechart', function(req, res) {
   res.json(obj);
 });
 
+app.get('/list', function(req, res) {
+  var obj = [];
+  var nbItems = chance.integer({ min: 2, max: 10 });
+
+  for(i=0;i<nbItems;i++) {
+    obj.push({
+      title: {
+        text: chance.word()
+      },
+      label: {
+        name: chance.syllable(),
+        color: chance.color({ format: 'hex' })
+      },
+      description: chance.sentence({ words: 5 })
+    });
+  }
+
+  res.json(obj);
+});
+
 app.get('/map', function(req, res) {
   var obj = JSON.parse(fs.readFileSync('data/map.json', 'utf8'));
   setTimeout(function() {

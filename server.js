@@ -74,8 +74,9 @@ app.get('/geckometer', function(req, res) {
 });
 
 app.get('/highchart', function(req, res) {
-  var obj = JSON.parse(fs.readFileSync('data/highchart.json', 'utf8'));
-  res.json(obj);
+  var obj = fs.readFileSync('data/highchart.js', 'utf8');
+  res.set('Content-Type', 'text/html');
+  res.send(obj);
 });
 
 app.get('/linechart', function(req, res) {

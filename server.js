@@ -98,7 +98,8 @@ app.get('/linechart', function(req, res) {
       axisy: [],
       color: chance.color({ format: 'hex' })
     }
-  }
+  };
+
   res.json(obj);
 });
 
@@ -188,11 +189,11 @@ app.get('/text', function(req, res) {
         "type": chance.integer({ min: 0, max: 2 })
       }
     ]
-  }
+  };
   // Fake network latency between 0 and 5sec
   setTimeout(function() {
     res.json(obj);
-  }, chance.integer({ min: 0, min: 5000 }));
+  }, chance.integer({ min: 0, max: 5000 }));
 });
 
 app.set('port', (process.env.PORT || 9001));
